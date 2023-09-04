@@ -31,5 +31,5 @@ public class Profesor {
     @JoinTable(name = "curso_profesor",
     joinColumns = @JoinColumn(name = "FK_Profesor", nullable = false),
     inverseJoinColumns = @JoinColumn(name = "FK_Curso", nullable = false))
-    private List<Curso> cursos;
+    private List<Curso> listaCursos;
 }

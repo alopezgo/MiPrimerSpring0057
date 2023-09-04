@@ -19,11 +19,12 @@ public class Curso {
     private int id;
 
     @Column(nullable = false, length = 1)
-    private String nombre;
+    private String nombreCurso;
 
-    @ManyToMany(mappedBy = "cursos")
-    private List<Profesor> profesores;
+    @ManyToMany(mappedBy = "listaCursos")
+    private List<Profesor> listaProfesores;
 
-    @OneToMany
-    private List<Alumno> alumnos;
+    @OneToMany(mappedBy = "curso")
+    private List<Alumno> listaAlumnos;
+
 }
