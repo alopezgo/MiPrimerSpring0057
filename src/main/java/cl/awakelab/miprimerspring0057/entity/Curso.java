@@ -24,7 +24,7 @@ public class Curso {
     @ManyToMany(mappedBy = "listaCursos")
     private List<Profesor> listaProfesores;
 
-    @OneToMany(mappedBy = "curso")
+    @OneToMany(mappedBy = "cursoAsignado")
     private List<Alumno> listaAlumnos;
 
 }

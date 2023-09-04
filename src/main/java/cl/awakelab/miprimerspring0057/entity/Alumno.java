@@ -27,5 +27,5 @@ public class Alumno {
 
     @ManyToOne(optional = false, cascade = CascadeType.ALL, fetch = FetchType.EAGER)
     @JoinColumn(name = "FK_Curso", nullable = false)
-    private Curso curso;
+    private Curso cursoAsignado;
 }
