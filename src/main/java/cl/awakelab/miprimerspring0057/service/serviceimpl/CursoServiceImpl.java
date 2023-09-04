@@ -1,5 +1,6 @@
 package cl.awakelab.miprimerspring0057.service.serviceimpl;
 
+import cl.awakelab.miprimerspring0057.entity.Alumno;
 import cl.awakelab.miprimerspring0057.entity.Curso;
 import cl.awakelab.miprimerspring0057.repository.ICursoRepository;
 import cl.awakelab.miprimerspring0057.service.ICursoService;
@@ -20,8 +21,12 @@ public class CursoServiceImpl implements ICursoService {
     }
 
     @Override
-    public Curso actualizarCurso(int id) {
-        return null;
+    public Curso actualizarCurso(Curso curso) {
+        Curso actualizarCurso = objCursoRepo.findById(curso.getId()).orElse(null);
+        actualizarCurso.setNombreCurso(curso.getNombreCurso());
+        actualizarCurso.setListaAlumnos(curso.getListaAlumnos());
+        actualizarCurso.setListaProfesores(curso.getListaProfesores());
+        return objCursoRepo.save(actualizarCurso);
     }
 
     @Override
@@ -29,6 +34,11 @@ public class CursoServiceImpl implements ICursoService {
         List<Curso> listaAMostrar = new ArrayList<>();
         listaAMostrar = objCursoRepo.findAll();
         return listaAMostrar;
+    }
+
+    @Override
+    public Curso listarCursoID(int id) {
+        return objCursoRepo.findById(id).orElse(null);
     }
 
     @Override

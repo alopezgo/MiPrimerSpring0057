@@ -1,5 +1,6 @@
 package cl.awakelab.miprimerspring0057.service.serviceimpl;
 
+import cl.awakelab.miprimerspring0057.entity.Alumno;
 import cl.awakelab.miprimerspring0057.entity.Usuario;
 import cl.awakelab.miprimerspring0057.repository.IUsuarioRepository;
 import cl.awakelab.miprimerspring0057.service.IUsuarioService;
@@ -20,8 +21,12 @@ public class UsuarioServiceImpl implements IUsuarioService {
     }
 
     @Override
-    public Usuario actualizarUsuario(int id) {
-        return null;
+    public Usuario actualizarUsuario(Usuario usuario) {
+        Usuario actualizarUsuario = objUsuarioRepo.findById(usuario.getId()).orElse(null);
+        actualizarUsuario.setNombreUsuario(usuario.getNombreUsuario());
+        actualizarUsuario.setContrasena(usuario.getContrasena());
+        actualizarUsuario.setRol(usuario.getRol());
+        return objUsuarioRepo.save(actualizarUsuario);
     }
 
     @Override
@@ -34,7 +39,7 @@ public class UsuarioServiceImpl implements IUsuarioService {
 
     @Override
     public Usuario listarUsuarioID(int id) {
-        return null;
+        return objUsuarioRepo.findById(id).orElse(null);
     }
 
     @Override
