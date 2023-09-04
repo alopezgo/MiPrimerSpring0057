@@ -1,4 +1,4 @@
-package cl.awakelab.miprimerspring0057.service.serviceimpl;
+package cl.awakelab.miprimerspring0057.service;
 
 import cl.awakelab.miprimerspring0057.entity.Profesor;
 
@@ -9,5 +9,6 @@ public interface IProfesorService {
     public Profesor actualizarProfesor(int id);
     public List<Profesor> listarProfesor();
     public void eliminarProfesor(int id);
+    public void eliminarProfesor2(Profesor profesor);
 
 }

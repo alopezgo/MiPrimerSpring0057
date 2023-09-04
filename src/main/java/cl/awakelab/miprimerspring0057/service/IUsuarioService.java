@@ -1,4 +1,4 @@
-package cl.awakelab.miprimerspring0057.service.serviceimpl;
+package cl.awakelab.miprimerspring0057.service;
 
 import cl.awakelab.miprimerspring0057.entity.Profesor;
 import cl.awakelab.miprimerspring0057.entity.Usuario;
@@ -11,4 +11,5 @@ public interface IUsuarioService {
     public List<Usuario> listarUsuario();
     public Usuario listarUsuarioID(int id);
     public void eliminarUsuario(int id);
+    public void eliminarUsuario2(Usuario usuario);
 }
