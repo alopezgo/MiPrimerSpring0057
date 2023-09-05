@@ -17,7 +17,6 @@ public class UsuarioRestController {
      @PostMapping
      public Usuario crearUsuario(@RequestBody Usuario usuario){
          return objUsuarioService.crearUsuario(usuario);
-
      }
      @PutMapping("/{id}")
     public Usuario actualizarUsuario(@RequestBody Usuario usuario){
@@ -25,11 +24,13 @@ public class UsuarioRestController {
      }
     @GetMapping
      public List<Usuario> listarUsuario(){
+
          return objUsuarioService.listarUsuario();
     }
     @GetMapping("/{id}")
     public Usuario listarUsuarioID(@PathVariable int id){
-        return objUsuarioService.listarUsuarioID(id);
+
+         return objUsuarioService.listarUsuarioID(id);
     }
 
     @DeleteMapping("/{id}")
@@ -37,7 +38,6 @@ public class UsuarioRestController {
          objUsuarioService.eliminarUsuario(id);
          return true;
     }
-
     @DeleteMapping
     public boolean eliminarUsuario(@RequestBody Usuario usuario){
         objUsuarioService.eliminarUsuario2(usuario);

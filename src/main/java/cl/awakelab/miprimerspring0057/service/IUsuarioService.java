@@ -1,6 +1,4 @@
 package cl.awakelab.miprimerspring0057.service;
-
-import cl.awakelab.miprimerspring0057.entity.Profesor;
 import cl.awakelab.miprimerspring0057.entity.Usuario;
 
 import java.util.List;
