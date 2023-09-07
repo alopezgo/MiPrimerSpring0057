@@ -29,25 +29,25 @@ public class UsuarioController {
         return "templateListarUsuarioID";
     }
 
-    @GetMapping("/agregar")
-    public String formulario(Model model){
-        model.addAttribute("titulo", "Formulario de agregación de usuario");
-
-        return "templateFormAgregarUsuario";
-    }
-
-    @PostMapping("/agregarUsuario")
-    public String agregarUsuario(Model model, @RequestParam String nombreUsuario,
-                                 @RequestParam String contrasena, @RequestParam String rol){
-        Usuario usuarioAgregar = new Usuario();
-        usuarioAgregar.setNombreUsuario(nombreUsuario);
-        usuarioAgregar.setContrasena(contrasena);
-        usuarioAgregar.setRol(rol);
-        objUsuarioService.crearUsuario(usuarioAgregar);
-        model.addAttribute("mensaje","Usuario agregado correctamente");
-
-        return "redirect:/listar";
-    }
+//    @GetMapping("/agregar")
+//    public String formulario(Model model){
+//        model.addAttribute("titulo", "Formulario de agregación de usuario");
+//
+//        return "templateFormAgregarUsuario";
+//    }
+//
+//    @PostMapping("/agregarUsuario")
+//    public String agregarUsuario(Model model, @RequestParam String nombreUsuario,
+//                                 @RequestParam String contrasena, @RequestParam String rol){
+//        Usuario usuarioAgregar = new Usuario();
+//        usuarioAgregar.setNombreUsuario(nombreUsuario);
+//        usuarioAgregar.setContrasena(contrasena);
+//        usuarioAgregar.setRol(rol);
+//        objUsuarioService.crearUsuario(usuarioAgregar);
+//        model.addAttribute("mensaje","Usuario agregado correctamente");
+//
+//        return "redirect:/listar";
+//    }
 
     @GetMapping("/crearUsuario")
     public String formCrearUsuario(){
