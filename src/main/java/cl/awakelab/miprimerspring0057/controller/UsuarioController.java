@@ -26,47 +26,46 @@ public class UsuarioController {
         Usuario usuarioEncontrado = objUsuarioService.listarUsuarioID(id);
         model.addAttribute("usuarioEncontrado",usuarioEncontrado);
 
-        return "listarPorId";
+        return "templateListarUsuarioID";
     }
-
 
     @GetMapping("/agregar")
     public String formulario(Model model){
         model.addAttribute("titulo", "Formulario de agregación de usuario");
 
-        return "formUsuario";
+        return "templateFormAgregarUsuario";
     }
 
     @PostMapping("/agregarUsuario")
-    public String agregarUsuario(Model model, @RequestParam String nombre,
-                                 @RequestParam String password, @RequestParam String rol){
+    public String agregarUsuario(Model model, @RequestParam String nombreUsuario,
+                                 @RequestParam String contrasena, @RequestParam String rol){
         Usuario usuarioAgregar = new Usuario();
-        usuarioAgregar.setNombreUsuario(nombre);
-        usuarioAgregar.setContrasena(password);
+        usuarioAgregar.setNombreUsuario(nombreUsuario);
+        usuarioAgregar.setContrasena(contrasena);
         usuarioAgregar.setRol(rol);
         objUsuarioService.crearUsuario(usuarioAgregar);
         model.addAttribute("mensaje","Usuario agregado correctamente");
 
-        return "formUsuario";
+        return "redirect:/listar";
     }
 
     @GetMapping("/crearUsuario")
     public String formCrearUsuario(){
 
-        return "templateCrearUsuario";
+        return "templateFormCrearUsuario";
     }
 
     @PostMapping("/crearUsuario")
     public String crearUsuario(@ModelAttribute Usuario usuario){
         objUsuarioService.crearUsuario(usuario);
 
-        return "redirect:/usuario/listar";
+        return "redirect:/usuario";
     }
 
     @PostMapping("/eliminar/{id}")
     public String eliminarUsuario(@PathVariable int id){
         objUsuarioService.eliminarUsuario(id);
 
-        return "redirect:/usuario/listar";
+        return "redirect:/listar";
     }
 }
