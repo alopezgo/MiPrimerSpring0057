@@ -13,28 +13,30 @@
 <header th:include="~{../static/html/header.html}" ></header>
 
 <section class="container">
-    <h2><strong>Creación de usuario</strong></h2>
+    <h2><strong>Creación de profesor</strong></h2>
     <form th:action="@{/profesor/crearProfesor}" method="post">
         <div>
-            <label for="nombres" class="form-label">Nombre Profesor</label>
-            <input type="text" class="form-control" id="nombres" name="nombres" required placeholder="Ingrese nombres">
-        </div>
-        <div>
-            <label for="apellido1" class="form-label">Primer Apellidp</label>
-            <input type="text" class="form-control" id="apellido1" name="apellido1" required placeholder="Ingrese primer apellido">
-        </div>
-        <div>
-            <label for="apellido2" class="form-label">Primer Apellidp</label>
-            <input type="text" class="form-control" id="apellido2" name="apellido2" required placeholder="Ingrese segundo apellido">
-        </div>
-        <div>
-            <!--debe consumirse api que retorne lista cursos-->
-            <label for="listaCursos" class="form-label">Cursos</label>
-            <select class="form-control" name="listaCursos" id="listaCursos" multiple>
-                <option value="1">Curso1</option>
-                <option value="2">Curso2</option>
-                <option value="3">Curso3</option>
-            </select>
+            <div>
+                <label for="nombres" class="form-label">Nombres</label>
+                <input type="text" class="form-control" id="nombres" name="nombres" required placeholder="Ingrese nombres">
+            </div>
+            <div>
+                <label for="apellido1" class="form-label">Primer Apellido</label>
+                <input type="text" class="form-control" id="apellido1" name="apellido1" required placeholder="Ingrese primer apellido">
+            </div>
+            <div>
+                <label for="apellido2" class="form-label">Segundo Apellido</label>
+                <input type="text" class="form-control" id="apellido2" name="apellido2" required placeholder="Ingrese segundo apellido">
+            </div>
+            <div>
+                <!--debe consumirse api que retorne lista cursos-->
+                <label for="listaCursos" class="form-label">Cursos :</label>
+                <select class="form-control" name="listaCursos" id="listaCursos" multiple>
+                    <option value="1">Curso1</option>
+                    <option value="2">Curso2</option>
+                    <option value="3">Curso3</option>
+                </select>
+            </div>
         </div>
         <div>
             <button type="submit" class="btn btn-primary">Crear Profesor</button>
