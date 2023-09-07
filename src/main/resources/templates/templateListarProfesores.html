@@ -27,22 +27,22 @@
             <td th:text="${profesor.apellido1}"></td>
             <td th:text="${profesor.apellido2}"></td>
             <td th:text="${profesor.listaCursos}"></td>
-<!--            <td>-->
-<!--                <div class="row m-4 ">-->
-<!--                    <div class="col-6">-->
-<!--                        <form th:action="@{/profesor/editar/{id}(id=${profesor.id})}"-->
-<!--                              method="get">-->
-<!--                            <button class="btn btn-warning" type="submit">Editar</button>-->
-<!--                        </form>-->
-<!--                    </div>-->
-<!--                    <div class="col-6">-->
-<!--                        <form th:action="@{/profesor/eliminar/{id}(id=${profesor.id})}"-->
-<!--                              method="post" onsubmit="return confirm('¿Estás seguro de que quieres eliminar este usuario?')">-->
-<!--                            <button class="btn btn-danger" type="submit">Eliminar</button>-->
-<!--                        </form>-->
-<!--                    </div>-->
-<!--                </div>-->
-<!--            </td>-->
+            <td>
+                <div class="row m-4 ">
+                    <div class="col-6">
+                        <form th:action="@{/profesor/editar/{id}(id=${profesor.id})}"
+                              method="get">
+                            <button class="btn btn-warning" type="submit">Editar</button>
+                        </form>
+                    </div>
+                    <div class="col-6">
+                        <form th:action="@{/profesor/eliminar/{id}(id=${profesor.id})}"
+                              method="post" onsubmit="return confirm('¿Estás seguro de que quieres eliminar a este profesor?')">
+                            <button class="btn btn-danger" type="submit">Eliminar</button>
+                        </form>
+                    </div>
+                </div>
+            </td>
         </tr>
         </tbody>
     </table>
