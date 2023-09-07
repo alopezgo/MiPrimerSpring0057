@@ -6,9 +6,7 @@ import cl.awakelab.miprimerspring0057.service.IProfesorService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 
@@ -33,5 +31,22 @@ public class ProfesorController {
         model.addAttribute("profesorEncontrado",profesorEncontrado);
 
         return "templateListarProfesorID";
+    }
+    @GetMapping("/crearProfesor")
+    public String formCrearProfesor(){
+        return "templateFormCrearProfesor";
+    }
+
+    @PostMapping("/crearProfesor")
+    public String crearProfesor(@ModelAttribute Profesor profesor){
+        objProfesorService.crearProfesor(profesor);
+        return "redirect:/profesor";
+    }
+
+    @PostMapping("/eliminar/{id}")
+    public String eliminarProfesor(@PathVariable int id){
+        objProfesorService.eliminarProfesor(id);
+
+        return "redirect:/profesor";
     }
 }

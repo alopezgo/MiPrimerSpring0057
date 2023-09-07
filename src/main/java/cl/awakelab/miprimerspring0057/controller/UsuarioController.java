@@ -66,6 +66,6 @@ public class UsuarioController {
     public String eliminarUsuario(@PathVariable int id){
         objUsuarioService.eliminarUsuario(id);
 
-        return "redirect:/listar";
+        return "redirect:/usuario";
     }
 }
