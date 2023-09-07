@@ -1,7 +1,6 @@
 package cl.awakelab.miprimerspring0057.controller;
 
 import cl.awakelab.miprimerspring0057.entity.Profesor;
-import cl.awakelab.miprimerspring0057.entity.Usuario;
 import cl.awakelab.miprimerspring0057.service.IProfesorService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
