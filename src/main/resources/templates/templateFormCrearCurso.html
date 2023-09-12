@@ -21,16 +21,16 @@
         </div>
         <div>
             <!--debe consumirse api que retorne lista profesores-->
-            <label for="atributoListaProfesores" class="form-label">Profesores</label>
-            <select class="form-control" name="atributoListaProfesores" id="atributoListaProfesores" multiple>
-                <option th:each="profesor : ${atributoListaProfesores}" th:value="${profesor}" th:text="${profesor.nombres +' '+ profesor.apellido1 +' '+ profesor.apellido2}" th:field="*{atributoListaProfesores}"></option>
+            <label for="listaProfesores" class="form-label">Profesores</label>
+            <select class="form-control" name="listaProfesores" id="listaProfesores" multiple>
+                <option th:each="profesor : ${atributoListaProfesores}" th:value="${profesor.id}" th:text="${profesor.nombres +' '+ profesor.apellido1 +' '+ profesor.apellido2}" th:field="*{atributoListaProfesores}"></option>
             </select>
         </div>
         <div>
             <!--debe consumirse api que retorne lista alumnos-->
-            <label for="atributoListaAlumnos" class="form-label">Alumnos</label>
-            <select class="form-control" name="atributoListaAlumnos" id="atributoListaAlumnos" multiple>
-                <option th:each="alumno : ${atributoListaAlumnos}" th:value="${alumno}" th:text="${alumno.nombres +' '+ alumno.apellido1 +' '+ alumno.apellido2}" th:field="*{atributoListaAlumnos}"></option>
+            <label for="listaAlumnos" class="form-label">Alumnos</label>
+            <select class="form-control" name="listaAlumnos" id="listaAlumnos" multiple>
+                <option th:each="alumno : ${atributoListaAlumnos}" th:value="${alumno.id}" th:text="${alumno.nombres +' '+ alumno.apellido1 +' '+ alumno.apellido2}" th:field="*{atributoListaAlumnos}"></option>
             </select>
         </div>
         <div>
