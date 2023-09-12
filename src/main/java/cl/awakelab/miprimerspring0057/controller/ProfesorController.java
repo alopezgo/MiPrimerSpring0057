@@ -28,7 +28,7 @@ public class ProfesorController {
         Profesor profesorEncontrado = objProfesorService.listarProfesorID(id);
         model.addAttribute("profesorEncontrado",profesorEncontrado);
 
-        return "templateListarProfesorID";
+        return "templateListarProfesores";
     }
     @GetMapping("/crearProfesor")
     public String formCrearProfesor(){

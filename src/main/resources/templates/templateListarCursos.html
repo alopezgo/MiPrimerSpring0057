@@ -17,14 +17,16 @@
             <th>Nombre Curso</th>
             <th>Profesores</th>
             <th>Alumnos</th>
+            <th>Edtar</th>
+            <th>Eliminar</th>
         </tr>
         </thead>
         <tbody>
         <tr th:each="curso: ${atributoListaCursos}">
             <td th:text="${curso.id}"></td>
             <td th:text="${curso.nombreCurso}"></td>
-            <td th:text="${curso.listaProfesores}"></td>
-            <td th:text="${curso.listaAlumnos}"></td>
+            <td>Lista Profes</td>
+            <td>Lista Alumnos</td>
             <td>
                 <div class="row m-4 ">
                     <div class="col-6">

@@ -13,23 +13,28 @@
 <header th:include="~{../static/html/header.html}" ></header>
 
 <section class="container">
-    <h2><strong>Creación de Curso</strong></h2>
+    <h2><strong>Crear nuevo Curso</strong></h2>
     <form th:action="@{/curso/crearCurso}" method="post">
         <div>
-            <label for="nombre" class="form-label">Nombre del curso</label>
-            <input type="text" class="form-control" id="nombre" name="nombreCurso" required placeholder="Ingrese nombre">
+            <label for="nombreCurso" class="form-label">Nombre del curso</label>
+            <input type="text" class="form-control" id="nombreCurso" name="nombreCurso" required placeholder="Ingrese nombre del curso">
         </div>
         <div>
             <!--debe consumirse api que retorne lista profesores-->
-            <label for="atributoListaCursos" class="form-label">Profesores :</label>
-            <select th:field="*{listaProfesores}" class="form-control" name="atributoListaCursos" id="atributoListaCursos" multiple>
-                <option th:each="i : ${curso.listaProfesores}" value="i.id" >Profe1</option>
-                <option value="2">Profe2</option>
-                <option value="3">Profe3</option>
+            <label for="atributoListaProfesores" class="form-label">Profesores</label>
+            <select class="form-control" name="atributoListaProfesores" id="atributoListaProfesores" multiple>
+                <option th:each="profesor : ${atributoListaProfesores}" th:value="${profesor}" th:text="${profesor.nombres +' '+ profesor.apellido1 +' '+ profesor.apellido2}" th:field="*{atributoListaProfesores}"></option>
             </select>
         </div>
         <div>
-            <button type="submit" class="btn btn-primary">Crear Profesor</button>
+            <!--debe consumirse api que retorne lista alumnos-->
+            <label for="atributoListaAlumnos" class="form-label">Alumnos</label>
+            <select class="form-control" name="atributoListaAlumnos" id="atributoListaAlumnos" multiple>
+                <option th:each="alumno : ${atributoListaAlumnos}" th:value="${alumno}" th:text="${alumno.nombres +' '+ alumno.apellido1 +' '+ alumno.apellido2}" th:field="*{atributoListaAlumnos}"></option>
+            </select>
+        </div>
+        <div>
+            <button type="submit" class="btn btn-primary">Crear Curso</button>
         </div>
     </form>
 </section>

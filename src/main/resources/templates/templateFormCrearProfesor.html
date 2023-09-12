@@ -13,7 +13,7 @@
 <header th:include="~{../static/html/header.html}" ></header>
 
 <section class="container">
-    <h2><strong>Creación de profesor</strong></h2>
+    <h2><strong>Crear nuevo profesor</strong></h2>
     <form th:action="@{/profesor/crearProfesor}" method="post">
         <div>
             <div>
@@ -28,15 +28,15 @@
                 <label for="apellido2" class="form-label">Segundo Apellido</label>
                 <input type="text" class="form-control" id="apellido2" name="apellido2" required placeholder="Ingrese segundo apellido">
             </div>
-            <div>
-                <!--debe consumirse api que retorne lista cursos-->
-                <label for="listaCursos" class="form-label">Cursos :</label>
-                <select class="form-control" name="listaCursos" id="listaCursos" multiple>
-                    <option value="1">Curso1</option>
-                    <option value="2">Curso2</option>
-                    <option value="3">Curso3</option>
-                </select>
-            </div>
+<!--            <div>-->
+<!--                &lt;!&ndash;debe consumirse api que retorne lista cursos&ndash;&gt;-->
+<!--                <label for="listaCursos" class="form-label">Cursos :</label>-->
+<!--                <select class="form-control" name="listaCursos" id="listaCursos" multiple>-->
+<!--                    <option value="1">Curso1</option>-->
+<!--                    <option value="2">Curso2</option>-->
+<!--                    <option value="3">Curso3</option>-->
+<!--                </select>-->
+<!--            </div>-->
         </div>
         <div>
             <button type="submit" class="btn btn-primary">Crear Profesor</button>

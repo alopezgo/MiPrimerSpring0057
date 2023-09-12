@@ -1,6 +1,8 @@
 package cl.awakelab.miprimerspring0057.controller;
 
+import cl.awakelab.miprimerspring0057.entity.Alumno;
 import cl.awakelab.miprimerspring0057.entity.Curso;
+import cl.awakelab.miprimerspring0057.entity.Profesor;
 import cl.awakelab.miprimerspring0057.entity.Usuario;
 import cl.awakelab.miprimerspring0057.service.IAlumnoService;
 import cl.awakelab.miprimerspring0057.service.ICursoService;
@@ -18,10 +20,10 @@ public class CursoController {
 
     @Autowired
     private ICursoService objCursoService;
-//    @Autowired
-//    private IProfesorService objProfesorService;
-//    @Autowired
-//    private IAlumnoService objAlumnoService;
+    @Autowired
+    private IProfesorService objProfesorService;
+    @Autowired
+    private IAlumnoService objAlumnoService;
 
     @GetMapping
     public String listarCursos(Model model) {
@@ -35,12 +37,15 @@ public class CursoController {
         model.addAttribute("tituloCursoId", "Curso encontrado por ID");
         Curso cursoEncontrado = objCursoService.listarCursoID(id);
         model.addAttribute("cursoEncontrado",cursoEncontrado);
-
-        return "templateListarCursoID";
+        return "templateListarCursos";
     }
 
     @GetMapping("/crearCurso")
-    public String formCrearCurso(){
+    public String formCrearCurso(Model model){
+        List<Profesor> listaProfes = objProfesorService.listarProfesor();
+        model.addAttribute("atributoListaProfesores",listaProfes);
+        List<Alumno> listaAlumnos = objAlumnoService.listarAlumno();
+        model.addAttribute("atributoListaAlumnos",listaAlumnos);
         return "templateFormCrearCurso";
     }
 

@@ -13,22 +13,22 @@
 <header th:include="~{../static/html/header.html}" ></header>
 
 <section class="container">
-    <h2><strong>Creación de usuario</strong></h2>
+    <h2><strong>Crear nuevo usuario</strong></h2>
     <form th:action="@{/usuario/crearUsuario}" method="post">
         <div>
-            <label for="nombre" class="form-label">Nombre de usuario</label>
-            <input type="text" class="form-control" id="nombre" name="nombreUsuario" required placeholder="Ingrese nombre">
+            <label for="nombreUsuario" class="form-label">Nombre de usuario</label>
+            <input type="text" class="form-control" id="nombreUsuario" name="nombreUsuario" required placeholder="Ingrese nombre">
         </div>
         <div>
-            <label for="password" class="form-label">Password</label>
-            <input type="password" class="form-control" id="password" name="contrasena" required placeholder="Ingrese contraseña">
+            <label for="contrasena" class="form-label">Password</label>
+            <input type="password" class="form-control" id="contrasena" name="contrasena" required placeholder="Ingrese contraseña">
         </div>
         <div>
             <label for="rol" class="form-label">Rol</label>
             <select class="form-control" name="rol" id="rol" required>
-                <option value="Profesor">Profesor</option>
-                <option value="Estudiante">Estudiante</option>
-                <option value="Administrador">Administrador</option>
+                <option value="profesor">Profesor</option>
+                <option value="estudiante">Estudiante</option>
+                <option value="administrador">Administrador</option>
             </select>
         </div>
         <div>

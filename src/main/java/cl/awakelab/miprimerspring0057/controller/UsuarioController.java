@@ -26,7 +26,7 @@ public class UsuarioController {
         Usuario usuarioEncontrado = objUsuarioService.listarUsuarioID(id);
         model.addAttribute("usuarioEncontrado",usuarioEncontrado);
 
-        return "templateListarUsuarioID";
+        return "templateListarUsuarios";
     }
 
     @GetMapping("/crearUsuario")

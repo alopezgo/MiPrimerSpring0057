@@ -18,7 +18,7 @@ public class Curso {
     @Column(name = "id", unique = true, nullable = false)
     private int id;
 
-    @Column(nullable = false, length = 1)
+    @Column(name="nombre_curso", nullable = false, length = 100)
     private String nombreCurso;
 
     @ManyToMany(mappedBy = "listaCursos")

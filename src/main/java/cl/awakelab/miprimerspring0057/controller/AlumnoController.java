@@ -25,14 +25,22 @@ public class AlumnoController {
     public String listarAlumnos(Model model) {
         List<Alumno> listaAlumnos = objAlumnoService.listarAlumno();
         model.addAttribute("listaAlumnos", listaAlumnos);
-        return "templateAlumnos";
+        return "templateListarAlumnos";
+    }
+    @GetMapping("/{id}")
+    public String listarAlumnoId(@PathVariable int id, Model model){
+        model.addAttribute("tituloAlumnoId", "Alumno encontrado por ID");
+        Alumno alumnoEncontrado = objAlumnoService.listarAlumnoID(id);
+        model.addAttribute("alumnoEncontrado",alumnoEncontrado);
+
+        return "templateListarAlumnos";
     }
 
     @GetMapping("/crearAlumno")
     public String formCrearAlumno(Model model) {
-//        List<Curso> listaCursos = objCursoService.listarCurso();
-//        model.addAttribute("listaCursos", listaCursos);
-        return "templateCrearAlumno";
+        List<Curso> listaCursos = objCursoService.listarCurso();
+        model.addAttribute("listaCursos", listaCursos);
+        return "templateFormCrearAlumno";
     }
 
     @PostMapping("/crearAlumno")
