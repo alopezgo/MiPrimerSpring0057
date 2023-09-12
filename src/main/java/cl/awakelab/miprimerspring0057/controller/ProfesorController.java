@@ -16,14 +16,13 @@ public class ProfesorController {
     IProfesorService objProfesorService;
 
     @GetMapping
-    public String listaProfesores(Model model){
+    public String listarProfesores(Model model){
         List<Profesor> listaProfesores = objProfesorService.listarProfesor();
         model.addAttribute("atributoListaProfesores", listaProfesores);
-
         return "templateListarProfesores";
     }
 
-    @GetMapping("/listar/{id}")
+    @GetMapping("/{id}")
     public String listarProfesorId(@PathVariable int id, Model model){
         model.addAttribute("tituloProfesorId", "Profesor encontrado por ID");
         Profesor profesorEncontrado = objProfesorService.listarProfesorID(id);
@@ -41,11 +40,15 @@ public class ProfesorController {
         objProfesorService.crearProfesor(profesor);
         return "redirect:/profesor";
     }
+    @PostMapping("/editar/{id}")
+    public String editarProfesor(@ModelAttribute Profesor profesor){
+        objProfesorService.actualizarProfesor(profesor);
+        return "redirect:/profesor";
+    }
 
     @PostMapping("/eliminar/{id}")
     public String eliminarProfesor(@PathVariable int id){
         objProfesorService.eliminarProfesor(id);
-
         return "redirect:/profesor";
     }
 }

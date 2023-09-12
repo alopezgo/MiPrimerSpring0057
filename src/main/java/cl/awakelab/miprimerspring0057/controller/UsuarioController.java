@@ -15,12 +15,12 @@ public class UsuarioController {
 
     @GetMapping
     public String listaUsuarios(Model model){
-        List<Usuario> listaDeUsuarios = objUsuarioService.listarUsuario();
-        model.addAttribute("atributoListaDeUsuarios", listaDeUsuarios);
+        List<Usuario> listarUsuarios = objUsuarioService.listarUsuario();
+        model.addAttribute("atributoListaUsuarios", listarUsuarios);
 
         return "templateListarUsuarios";
     }
-    @GetMapping("/listar/{id}")
+    @GetMapping("/{id}")
     public String listarUsuarioId(@PathVariable int id, Model model){
         model.addAttribute("tituloUsuarioId", "Usuario encontrado por ID");
         Usuario usuarioEncontrado = objUsuarioService.listarUsuarioID(id);
@@ -29,43 +29,26 @@ public class UsuarioController {
         return "templateListarUsuarioID";
     }
 
-//    @GetMapping("/agregar")
-//    public String formulario(Model model){
-//        model.addAttribute("titulo", "Formulario de agregación de usuario");
-//
-//        return "templateFormAgregarUsuario";
-//    }
-//
-//    @PostMapping("/agregarUsuario")
-//    public String agregarUsuario(Model model, @RequestParam String nombreUsuario,
-//                                 @RequestParam String contrasena, @RequestParam String rol){
-//        Usuario usuarioAgregar = new Usuario();
-//        usuarioAgregar.setNombreUsuario(nombreUsuario);
-//        usuarioAgregar.setContrasena(contrasena);
-//        usuarioAgregar.setRol(rol);
-//        objUsuarioService.crearUsuario(usuarioAgregar);
-//        model.addAttribute("mensaje","Usuario agregado correctamente");
-//
-//        return "redirect:/listar";
-//    }
-
     @GetMapping("/crearUsuario")
     public String formCrearUsuario(){
-
         return "templateFormCrearUsuario";
     }
 
     @PostMapping("/crearUsuario")
     public String crearUsuario(@ModelAttribute Usuario usuario){
         objUsuarioService.crearUsuario(usuario);
+        return "redirect:/usuario";
+    }
 
+    @PostMapping("/editar/{id}")
+    public String editarUsuario(@ModelAttribute Usuario usuario){
+        objUsuarioService.actualizarUsuario(usuario);
         return "redirect:/usuario";
     }
 
     @PostMapping("/eliminar/{id}")
     public String eliminarUsuario(@PathVariable int id){
         objUsuarioService.eliminarUsuario(id);
-
         return "redirect:/usuario";
     }
 }
