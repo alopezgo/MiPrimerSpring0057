@@ -28,7 +28,7 @@
             <td th:text="${alumno.nombres}"></td>
             <td th:text="${alumno.apellido1}"></td>
             <td th:text="${alumno.apellido2}"></td>
-            <td>cursos inscrito</td>
+            <td th:text="${alumno.cursoAsignado.getNombreCurso()}"></td>
             <td>
                 <div class="row m-4 ">
                     <div class="col-6">
