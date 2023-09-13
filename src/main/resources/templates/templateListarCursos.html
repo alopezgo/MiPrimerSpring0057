@@ -25,8 +25,20 @@
         <tr th:each="curso: ${atributoListaCursos}">
             <td th:text="${curso.id}"></td>
             <td th:text="${curso.nombreCurso}"></td>
-            <td>Lista Profes</td>
-            <td>Lista Alumnos</td>
+            <td>
+                <select class="form-control" name="listaProfesores" id="listaProfesores">
+                    <th:block th:each="profesor : ${curso.listaProfesores}">
+                        <option th:value="${profesor.id}" th:text="${profesor.nombres + ' ' + profesor.apellido1 + ' ' + profesor.apellido2}"></option>
+                    </th:block>
+                </select>
+            </td>
+            <td>
+                <select class="form-control" name="listaAlumnos" id="listaAlumnos">
+                    <th:block th:each="alumno : ${curso.listaAlumnos}">
+                        <option th:value="${alumno.id}" th:text="${alumno.nombres + ' ' + alumno.apellido1 + ' ' + alumno.apellido2}"></option>
+                    </th:block>
+                </select>
+            </td>
             <td>
                 <div class="row m-4 ">
                     <div class="col-6">
