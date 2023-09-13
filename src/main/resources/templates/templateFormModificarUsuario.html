@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="es" xmlns:th="https://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Crear Usuario</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet"
+          integrity="sha384-9ndCyUaIbzAi2FUVXJi0CjmCapSmO7SnpJef0486qhLnuZ2cdeRhO02iuK6FUUVM" crossorigin="anonymous">
+
+</head>
+<body>
+<header th:include="~{../static/html/header.html}" ></header>
+
+<section class="container">
+    <h2><strong>Editar usuario</strong></h2>
+    <form th:action="@{/usuario/editar}" method="post">
+        <div>
+<!--            <label for="id" class="form-label">ID de usuario</label>-->
+<!--            <input type="hidden" class="form-control" id="id" name="id" th:value="${usuario.id}">-->
+            <input type="text" class="form-control" id="id" name="id" th:value="${usuario.id}" readonly th:placeholder="${usuario.id}" th:readonly="true">
+        </div>
+        <div>
+            <label for="nombreUsuario" class="form-label">Nombre de usuario</label>
+            <input type="text" class="form-control" id="nombreUsuario" name="nombreUsuario"  th:value="${usuario.nombreUsuario}" required th:placeholder="${usuario.nombreUsuario}">
+        </div>
+        <div>
+            <label for="contrasena" class="form-label">Password</label>
+            <input type="password" class="form-control" id="contrasena" name="contrasena" th:value="${usuario.contrasena}" required th:placeholder="${usuario.contrasena}">
+        </div>
+        <div>
+            <label for="rol" class="form-label">Rol</label>
+<!--            <select class="form-control" name="rol" id="rol" required>-->
+<!--                <option th:if="${usuario.rol == 'Profesor'}" value="Profesor">Profesor</option>-->
+<!--                <option th:if="${usuario.rol == 'Estudiante'}" value="Estudiante">Estudiante</option>-->
+<!--                <option th:if="${usuario.rol == 'Administrador'}" value="Administrador">Administrador</option>-->
+<!--            </select>-->
+            <input type="text" class="form-control" id="rol" name="rol"  readonly th:value="${usuario.rol}" th:placeholder="${usuario.rol}" th:readonly="true">
+        </div>
+        <div>
+            <button type="submit" class="btn btn-primary">Actualizar Usuario</button>
+        </div>
+    </form>
+</section>
+
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js" integrity="sha384-geWF76RCwLtnZ8qwWowPQNguL3RmwHVBC9FhGdlKrxdiJJigb/j/68SIy3Te4Bkz" crossorigin="anonymous"></script>
+</body>
+</html>

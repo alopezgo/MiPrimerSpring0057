@@ -40,9 +40,21 @@ public class UsuarioController {
         return "redirect:/usuario";
     }
 
-    @PostMapping("/editar/{id}")
-    public String editarUsuario(@ModelAttribute Usuario usuario){
-        objUsuarioService.actualizarUsuario(usuario);
+    @GetMapping("editar/{id}")
+    public String editarUsuario(Model model, @PathVariable("id") int id){
+        Usuario usuario = objUsuarioService.listarUsuarioID(id);
+        model.addAttribute("usuario", usuario);
+        return "templateFormModificarUsuario";
+    }
+
+    @PostMapping("/editar")
+    public String editarUsuario(@ModelAttribute Usuario usuarioRecibido){
+        System.out.println(usuarioRecibido);
+        Usuario usuarioPorActualizar = objUsuarioService.listarUsuarioID(usuarioRecibido.getId());
+        usuarioPorActualizar.setNombreUsuario(usuarioRecibido.getNombreUsuario());
+        usuarioPorActualizar.setContrasena(usuarioRecibido.getContrasena());
+        usuarioPorActualizar.setRol(usuarioRecibido.getRol());
+        objUsuarioService.actualizarUsuario(usuarioPorActualizar);
         return "redirect:/usuario";
     }
 
