@@ -35,7 +35,7 @@
                     </div>
                     <div class="col-6">
                         <form th:action="@{/usuario/eliminar/{id}(id=${usuario.id})}"
-                              method="get" onsubmit="return confirm('¿Estás seguro de que quieres eliminar a este usuario?')">
+                              method="post" onsubmit="return confirm('¿Estás seguro de que quieres eliminar a este usuario?')">
                             <button class="btn btn-danger" type="submit">Eliminar</button>
                         </form>
                     </div>

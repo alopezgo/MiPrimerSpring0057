@@ -55,11 +55,19 @@ public class CursoController {
         return "redirect:/curso";
     }
 
-    @PostMapping("/editar/{id}")
+    @GetMapping("editar/{id}")
+    public String editarUsuario(Model model, @PathVariable("id") int id){
+        Curso curso = objCursoService.listarCursoID(id);
+        model.addAttribute("curso", curso);
+        return "templateFormModificarCurso";
+    }
+
+    @PostMapping("/editar")
     public String editarCurso(@ModelAttribute Curso curso){
         objCursoService.actualizarCurso(curso);
         return "redirect:/curso";
     }
+
     @PostMapping("/eliminar/{id}")
     public String eliminarCurso(@PathVariable int id){
         objCursoService.eliminarCurso(id);

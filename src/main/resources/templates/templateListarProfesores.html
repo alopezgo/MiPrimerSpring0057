@@ -39,8 +39,8 @@
                 <div class="row m-4 ">
                     <div class="col-6">
                         <form th:action="@{/profesor/editar/{id}(id=${profesor.id})}"
-                              method="post">
-                            <button class="btn btn-warning" type="submit">Editar</button>
+                              method="get">
+                            <button th:data-bs-target=" '#editar~' + ${profesor.id}" class="btn btn-warning" type="submit">Editar</button>
                         </form>
                     </div>
                     <div class="col-6">

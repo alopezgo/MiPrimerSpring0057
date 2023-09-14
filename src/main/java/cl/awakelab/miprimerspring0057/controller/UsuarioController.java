@@ -40,7 +40,7 @@ public class UsuarioController {
         return "redirect:/usuario";
     }
 
-    @GetMapping("editar/{id}")
+    @GetMapping("/editar/{id}")
     public String editarUsuario(Model model, @PathVariable("id") int id){
         Usuario usuario = objUsuarioService.listarUsuarioID(id);
         model.addAttribute("usuario", usuario);

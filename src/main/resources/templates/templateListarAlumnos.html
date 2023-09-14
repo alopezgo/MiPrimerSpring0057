@@ -40,7 +40,7 @@
                     <div class="col-6">
                         <form th:action="@{/alumno/eliminar/{id}(id=${alumno.id})}"
                               method="post" onsubmit="return confirm('¿Estás seguro de que quieres eliminar este alumno?')">
-                            <button class="btn btn-danger" type="submit">Eliminar</button>
+                            <button th:data-bs-target=" '#editar~' + ${alumno.id}" class="btn btn-danger" type="submit">Eliminar</button>
                         </form>
                     </div>
                 </div>
