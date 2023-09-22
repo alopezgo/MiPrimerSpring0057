@@ -1,2 +1,3 @@
 # MiPrimerSpring0057
-My first spring web app 
+Simple website developed in Spring Java framework
+Using PostgreSQL as database and also Bootstrap for css
